@@ -1,0 +1,85 @@
+<!-- Diz que isso é HTML -->
+<!DOCTYPE html>
+<html>
+<head>
+ <!-- O título que aparece na aba do navegador -->
+ <title>Lista de Membros</title>
+ <!-- Deixando a página bonita com CSS -->
+ <style>
+ /* �� Limpa a margem do corpo da página */
+ body { font-family: Arial, sans-serif; margin: 20px; }
+ /* Estilizando a tabela */
+ table { border-collapse: collapse; width: 100%; margin-top: 20p
+x; }
+ /* Células da tabela */
+ th, td { border: 1px solid #ddd; padding: 12px; text-align: lef
+t; }
+ /* Cabeçalho da tabela (verde) */
+ th { background-color: #4CAF50; color: white; }
+ /* Linhas pares (mais claras) */
+ tr:nth-child(even) { background-color: #f2f2f2; }
+ /* Estilo dos botões */
+ .btn { padding: 8px 16px; text-decoration: none; border-radius:
+4px; }
+ .btn-add { background-color: #4CAF50; color: white; }
+ .btn-edit { background-color: #2196F3; color: white; }
+ .btn-delete { background-color: #f44336; color: white; }
+ </style>
+</head>
+<body>
+ <!-- TÍTULO DA PÁGINA -->
+ <h1>Lista de Membros</h1>
+  <!-- BOTÃO PARA ADICIONAR -->
+ <!-- url 'criar_membro' = usa o apelido da rota -->
+ <a href="{% url 'criar_membro' %}" class="btn btn-add">➕ Adicionar
+Novo Membro</a>
+ <!-- TABELA DE MEMBROS -->
+ <table>
+ <!-- CABEÇALHO DA TABELA -->
+ <thead>
+ <tr>
+ <th>ID</th> <!-- Número -->
+ <th>Primeiro Nome</th> <!-- Nome -->
+ <th>Último Nome</th> <!-- Sobrenome -->
+ <th>Telefone</th> <!-- Telefone -->
+ <th>Data de Ingresso</th> <!-- Data -->
+ <th>Ações</th> <!-- Botões -->
+ </tr>
+ </thead>
+ <!-- CORPO DA TABELA -->
+ <tbody>
+ <!-- LOOP: Para cada membro na lista -->
+ <!-- for = para cada -->
+ <!-- membro in membros = pega cada membro da lista -->
+ {% for membro in membros %}
+ <tr>
+ <td>{{ membro.id }}</td> <!-- Mostra o ID -->
+ <td>{{ membro.firstname }}</td> <!-- Mostra o primeiro
+nome -->
+ <td>{{ membro.lastname }}</td> <!-- Mostra o sobrenome
+-->
+ <td>{{ membro.telefone|default:"-" }}</td> <!-- Mostra
+telefone ou "-" -->
+ <td>{{ membro.data_ingresso|default:"-" }}</td> <!-- Mo
+stra data ou "-" -->
+ <td>
+ <!-- BOTÃO EDITAR -->
+ <a href="{% url 'editar_membro' membro.id %}" class
+="btn btn-edit">Editar</a>
+ <!-- BOTÃO EXCLUIR -->
+ <a href="{% url 'deletar_membro' membro.id %}" class
+="btn btn-delete">Excluir</a>
+ </td>
+ </tr>
+ <!-- FIM DO LOOP -->
+ <!-- SE NÃO HOUVER MEMBROS -->
+   {% empty %}
+ <tr>
+ <td colspan="6" style="text-align: center;">Nenhum membr
+o cadastrado.</td>
+ </tr>
+ {% endfor %}
+ </tbody>
+ </table>
+</body>
+</html>
