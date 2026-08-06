@@ -3,21 +3,24 @@ from django import forms
 from .models import Membros
 
 
-class Membrosform(forms.Modelform):
-    class meta:
+class MembrosForm(forms.ModelForm):
+    class Meta:
+        db_table = ''
+        managed = True
+        verbose_name = 'M'
+        verbose_name_plural = 'Meta'
         model = Membros
 
-        fields = ['fiirsname', 'lastname', 'telefone', 'data_ingresso']  # noqa: RUF012 
+        fields = ['firstname', 'lastname', 'telefone', 'data_ingresso']  # noqa: RUF012 
 
         widgets = {  # noqa: RUF012
-                ' data_ingresso ': forms.DateInput(attrs={'type':'date' }),
+                ' data_ingresso': forms.DateInput(attrs={'type':'date' }),
 
-                'telefone': forms.NumberInput(attrs={'placeholder': 'digite apenas números'}
-        ),
+                'telefone': forms.NumberInput(attrs={'placeholder': 'digite apenas números'}),
     }
         labels =  {  # noqa: RUF012
-            'firsname': 'primeiro nome',
-            'lastname': 'ultimo nome',
+            'firstname': 'Primeiro Nome',
+            'lastname': 'Ultimo Nome',
             'telefone': 'Telefone',
             'data_ingresso': 'Data de Ingresso',
     }

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - DetailerUrbn{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>O cuidado que seu carro <span>merece</span></h1>
+            <p>Transformamos a experiência de limpeza automotiva com excelência, tecnologia e cuidado em cada detalhe.</p>
+            <div class="hero-buttons">
+                <a href="{% url 'services' %}" class="btn-primary">Ver Serviços →</a>
+                <a href="{% url 'contact' %}" class="btn-secondary">Fale Conosco</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Carros limpos</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">4.9</div>
+                    <div class="stat-label">Avaliação média</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Satisfação</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Carro limpo">
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contato - DetailerUrbn{% endblock %}
+
+{% block content %}
+<section style="padding: 120px 24px 60px; max-width: 1200px; margin: 0 auto;">
+    <div class="section-header">
+        <span class="section-tag">Contato</span>
+        <h2 class="section-title">Fale com a <span>gente</span></h2>
+        <p class="section-subtitle">Estamos prontos para atender você</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+        <div>
+            <h3 style="font-size: 24px; margin-bottom: 16px;">Informações de Contato</h3>
+            
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <span style="font-size: 24px;">📍</span>
+                    <div>
+                        <strong>Endereço</strong>
+                        <p style="color: var(--gray); margin: 0;">Brasília, DF</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <span style="font-size: 24px;">📞</span>
+                    <div>
+                        <strong>Telefone</strong>
+                        <p style="color: var(--gray); margin: 0;">(11) 99999-9999</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <span style="font-size: 24px;">✉️</span>
+                    <div>
+                        <strong>Email</strong>
+                        <p style="color: var(--gray); margin: 0;">contato@detailerurbn.com</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <span style="font-size: 24px;">⏰</span>
+                    <div>
+                        <strong>Horário de Funcionamento</strong>
+                        <p style="color: var(--gray); margin: 0;">Seg-Sáb: 8h - 20h</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-links" style="margin-top: 24px; display: flex; gap: 12px;">
+                <a href="#" style="width: 44px; height: 44px; background: var(--gray-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; transition: var(--transition);">📸</a>
+                <a href="#" style="width: 44px; height: 44px; background: var(--gray-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; transition: var(--transition);">👍</a>
+                <a href="#" style="width: 44px; height: 44px; background: var(--gray-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; transition: var(--transition);">▶️</a>
+                <a href="#" style="width: 44px; height: 44px; background: var(--gray-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; transition: var(--transition);">💬</a>
+            </div>
+        </div>
+        
+        <div style="background: var(--gray-light); padding: 32px; border-radius: var(--radius);">
+            <h3 style="font-size: 24px; margin-bottom: 16px;">Envie uma mensagem</h3>
+            <form>
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; margin-bottom: 6px; font-weight: 600;">Seu nome</label>
+                    <input type="text" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit;">
+                </div>
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; margin-bottom: 6px; font-weight: 600;">Seu email</label>
+                    <input type="email" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit;">
+                </div>
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; margin-bottom: 6px; font-weight: 600;">Mensagem</label>
+                    <textarea rows="4" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit;"></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">Enviar Mensagem</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

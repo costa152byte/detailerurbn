@@ -3,8 +3,18 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.Listar_membros, name='listar_membros'),
-    path('criar/', views.criar_membro, name='criar_membro'),
-    path('editar/<int:id>/', views.editar_membro, name='editar_membro'),
-    path('deletar/,int:id>/', views.deletar_membro, name='deletar_membro')
+    # Páginas principais
+    path('', views.base, name='base'),
+    path('services/', views.services, name='services'),
+    path('prices/', views.prices, name='prices'),
+    path('about/', views.about, name='about'),
+    path('contact/', views.contact, name='contact'),
+    path('header/', views.header, name='header'),
+    
+    # Páginas de CRUD de membros
+    path('membros/', views.listar_membros, name='listar_membros'),
+    path('membros/criar/', views.criar_membro, name='criar_membro'),
+    path('membros/editar/<int:id>/', views.editar_membro, name='editar_membro'),
+    path('membros/deletar/<int:id>/', views.deletar_membro, name='deletar_membro'),
+    
 ]

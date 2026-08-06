@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sobre - DetailerUrbn{% endblock %}
+
+{% block content %}
+<section style="padding: 120px 24px 60px; max-width: 1200px; margin: 0 auto;">
+    <div class="section-header">
+        <span class="section-tag">Sobre Nós</span>
+        <h2 class="section-title">Conheça a <span>DetailerUrbn</span></h2>
+        <p class="section-subtitle">Somos especialistas em limpeza automotiva premium</p>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
+        <div>
+            <h3 style="font-size: 24px; margin-bottom: 16px;">Nossa História</h3>
+            <p style="color: var(--gray); line-height: 1.7;">Fundada em 2023, a DetailerUrbn nasceu com o propósito de oferecer o melhor serviço de limpeza automotiva do mercado. Com produtos de alta qualidade e uma equipe apaixonada pelo que faz, transformamos a experiência de cuidar do seu carro.</p>
+            <p style="color: var(--gray); line-height: 1.7; margin-top: 12px;">Nossa missão é proporcionar a você e ao seu veículo um tratamento diferenciado, com atenção aos mínimos detalhes.</p>
+        </div>
+        <div>
+            <h3 style="font-size: 24px; margin-bottom: 16px;">Nossos Valores</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 12px 0; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 24px;">✨</span>
+                    <div>
+                        <strong>Excelência</strong>
+                        <p style="color: var(--gray); font-size: 14px; margin: 0;">Buscamos a perfeição em cada detalhe</p>
+                    </div>
+                </li>
+                <li style="padding: 12px 0; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 24px;">🤝</span>
+                    <div>
+                        <strong>Confiança</strong>
+                        <p style="color: var(--gray); font-size: 14px; margin: 0;">Transparência e honestidade com nossos clientes</p>
+                    </div>
+                </li>
+                <li style="padding: 12px 0; display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 24px;">🚀</span>
+                    <div>
+                        <strong>Inovação</strong>
+                        <p style="color: var(--gray); font-size: 14px; margin: 0;">Sempre atualizados com as melhores técnicas</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}
