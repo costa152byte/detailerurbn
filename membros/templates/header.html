@@ -1,0 +1,50 @@
+<header class="header" id="header">
+    <nav class="nav-container">
+        <a href="{% url 'home' %}" class="logo">
+            <span class="logo-icon">✦</span>
+            Detailer<span>Urbn</span>
+        </a>
+        
+        <ul class="nav-menu" id="navMenu">
+            <li class="nav-item">
+                <a href="{% url 'home' %}" class="nav-link active">Início</a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="{% url 'services' %}" class="nav-link">Serviços</a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'service_detail' 'lavagem' %}">
+                        <span class="icon">💧</span> Lavagem Completa
+                    </a></li>
+                    <li><a href="{% url 'service_detail' 'polimento' %}">
+                        <span class="icon">✨</span> Polimento
+                    </a></li>
+                    <li><a href="{% url 'service_detail' 'vitrificacao' %}">
+                        <span class="icon">🛡️</span> Vitrificação
+                    </a></li>
+                    <li><a href="{% url 'service_detail' 'higienizacao' %}">
+                        <span class="icon">🧹</span> Higienização
+                    </a></li>
+                </ul>
+            </li>
+            
+            <li class="nav-item">
+                <a href="{% url 'prices' %}" class="nav-link">Preços</a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="{% url 'about' %}" class="nav-link">Sobre</a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="{% url 'contact' %}" class="nav-link nav-cta">Agendar Agora</a>
+            </li>
+        </ul>
+
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+</header>

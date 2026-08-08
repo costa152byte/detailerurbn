@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+ <title>Confirmar Exclusão</title>
+ <style>
+ body { font-family: Arial, sans-serif; margin: 20px; }
+ .container { max-width: 500px; margin: 50px auto; padding: 20px;
+border: 1px solid #ddd; border-radius: 8px; }
+ .warning { color: #f44336; font-size: 18px; font-weight: bold; }
+ .btn { padding: 10px 20px; text-decoration: none; border-radius:
+4px; border: none; cursor: pointer; }
+ .btn-delete { background-color: #f44336; color: white; }
+ .btn-cancel { background-color: #808080; color: white; }
+ </style>
+</head>
+<body>
+ <div class="container">
+ <h1>Confirmar Exclusão</h1>
+ <!-- AVISO IMPORTANTE -->
+ <p class="warning">
+     Tem certeza que deseja excluir o membro
+ <strong>{{ membro.firstname }} {{ membro.lastname }}</strong
+>?
+ </p>
+ <!-- INFORMAÇÕES DO MEMBRO -->
+ <p><strong>Telefone:</strong> {{ membro.telefone|default:"Não in
+formado" }}</p>
+ <p><strong>Data de Ingresso:</strong> {{ membro.data_ingresso|de
+fault:"Não informada" }}</p>
+ <!-- FORMULÁRIO DE CONFIRMAÇÃO -->
+ <form method="POST" style="display: inline;">
+ {% csrf_token %}
+ <button type="submit" class="btn btn-delete">Confirmar Exclu
+são</button>
+ </form>
+ <!-- BOTÃO CANCELAR -->
+ <a href="{% url 'listar_membros' %}" class="btn btn-cancel">Canc
+elar</a>
+ </div>
+</body>
+</html>

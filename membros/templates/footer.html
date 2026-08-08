@@ -1,0 +1,49 @@
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <a href="{% url 'home' %}" class="logo">
+                <span class="logo-icon">✦</span>
+                Detailer<span>Urbn</span>
+            </a>
+            <p>
+                Transformando a experiência de limpeza automotiva 
+                com excelência, tecnologia e cuidado em cada detalhe.
+            </p>
+            <div class="social-links">
+                <a href="#" aria-label="Instagram">📸</a>
+                <a href="#" aria-label="Facebook">👍</a>
+                <a href="#" aria-label="YouTube">▶️</a>
+                <a href="#" aria-label="WhatsApp">💬</a>
+            </div>
+        </div>
+        
+        <div>
+            <h4>Serviços</h4>
+            <a href="{% url 'service_detail' 'lavagem' %}">Lavagem Completa</a>
+            <a href="{% url 'service_detail' 'polimento' %}">Polimento</a>
+            <a href="{% url 'service_detail' 'vitrificacao' %}">Vitrificação</a>
+            <a href="{% url 'service_detail' 'higienizacao' %}">Higienização</a>
+        </div>
+        
+        <div>
+            <h4>Empresa</h4>
+            <a href="{% url 'about' %}">Sobre Nós</a>
+            <a href="#">Blog</a>
+            <a href="#">Depoimentos</a>
+            <a href="#">Trabalhe Conosco</a>
+        </div>
+        
+        <div>
+            <h4>Contato</h4>
+            <a href="tel:+5511999999999">(11) 99999-9999</a>
+            <a href="mailto:contato@detailerurbn.com">contato@detailerurbn.com</a>
+            <a href="#">Seg-Sáb: 8h - 20h</a>
+            <a href="#">📍 Brasilia, DF</a>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; {% now "Y" %} DetailerUrbn. Todos os direitos reservados.</p>
+        <p>Feito com ✦ por DetailerUrbn</p>
+    </div>
+</footer>

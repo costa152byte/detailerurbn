@@ -1,4 +1,104 @@
-from django.shortcuts import render
+# membros/views.py
+from django.shortcuts import get_object_or_404, redirect, render
 
-#contém as funções que procesam as requisições e retornam as respostas
+from .forms import MembrosForm
+from .models import Membros
 
+
+# Página inicial (Home)
+def home(request):
+    return render(request, 'membros/home.html')
+
+def base(request):
+    return render(request, 'membros/base.html')
+
+# Página de serviços
+def services(request):
+    # Dados dos serviços
+    services_data = [
+        {
+            'id': 1,
+            'name': 'Lavagem Completa',
+            'description': 'Lavagem externa e interna completa',
+            'price': '150,00',
+            'duration': '2 horas',
+            'icon': '💧',
+            'features': ['Lavagem externa', 'Aspiração interna', 'Limpeza de vidros'],
+            'featured': True,
+        },
+        {
+            'id': 2,
+            'name': 'Polimento',
+            'description': 'Polimento profissional com máquina',
+            'price': '250,00',
+            'duration': '3 horas',
+            'icon': '✨',
+            'features': ['Polimento de pintura', 'Remoção de riscos', 'Cera protetora'],
+            'featured': False,
+        },
+        {
+            'id': 3,
+            'name': 'Vitrificação',
+            'description': 'Proteção cerâmica de longa duração',
+            'price': '500,00',
+            'duration': '6 horas',
+            'icon': '🛡️',
+            'features': ['Vitrificação 9H', 'Proteção UV', 'Fácil limpeza'],
+            'featured': False,
+        },
+    ]
+    return render(request, 'membros/price.html', {'services': services_data})  # Corrigido!
+
+# Página de preços (mesmo conteúdo da services)
+def prices(request):
+    return services(request)
+
+# Página sobre
+def about(request):
+    return render(request, 'membros/about.html')
+
+# Página de contato
+def contact(request):
+    return render(request, 'membros/contact.html')
+
+# VIEWS PARA O CRUD DE MEMBROS
+def listar_membros(request):
+    lista = Membros.objects.all().order_by('firstname')
+    return render(request, 'membros/listar_membros.html', {"membros": lista})
+
+def criar_membro(request):
+    if request.method == "POST":
+        form = MembrosForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('listar_membros')
+    else:
+        form = MembrosForm()
+    return render(request, 'membros/criar_membro.html', {"form": form})
+
+def editar_membro(request, id):
+    membro = get_object_or_404(Membros, id=id)
+    if request.method == "POST":
+        form = MembrosForm(request.POST, instance=membro)
+        if form.is_valid():
+            form.save()
+            return redirect('listar_membros')
+    else:
+        form = MembrosForm(instance=membro)
+    return render(request, 'membros/editar_membro.html', {"form": form, "membro": membro})
+
+def deletar_membro(request, id):
+    membro = get_object_or_404(Membros, id=id)
+    if request.method == "POST":
+        membro.delete()
+        return redirect('listar_membros')
+    return render(request, 'membros/confirmar_delecao.html', {"membro": membro})
+
+# VIEWS AUXILIARES PARA OS TEMPLATES (se necessário)
+def service_detail(request, service_name):
+    """View para detalhes do serviço - pode ser expandida depois"""
+    return render(request, 'membros/service_detail.html', {'service_name': service_name})
+
+def booking(request, service_id):
+    """View para agendamento - pode ser expandida depois"""
+    return render(request, 'membros/booking.html', {'service_id': service_id})

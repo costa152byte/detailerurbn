@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Detalhe do Serviço - DetailerUrbn{% endblock %}
+
+{% block content %}
+<section style="padding: 120px 24px 60px; max-width: 1200px; margin: 0 auto;">
+    <h1>Detalhe do Serviço: {{ service_name }}</h1>
+    <p>Página em construção...</p>
+    <a href="{% url 'services' %}" class="btn-primary">Voltar para Serviços</a>
+</section>
+{% endblock %}
