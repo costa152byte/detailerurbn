@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+#contém as funções que procesam as requisições e retornam as respostas
+

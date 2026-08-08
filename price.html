@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Preços - DetailerUrbn{% endblock %}
+
+{% block content %}
+<section class="services-section" id="prices">
+    <div class="section-header">
+        <span class="section-tag">Nossos Planos</span>
+        <h2 class="section-title">Escolha o plano <span>ideal</span> para seu veículo</h2>
+        <p class="section-subtitle">
+            Oferecemos serviços personalizados para cada necessidade, 
+            com produtos de alta qualidade e mão de obra especializada.
+        </p>
+    </div>
+
+    <div class="services-grid">
+        {% for service in services %}
+        <div class="service-card {% if service.featured %}featured{% endif %}" data-index="{{ forloop.counter }}">
+            {% if service.featured %}
+            <span class="badge">🔥 Mais Popular</span>
+            {% endif %}
+            
+            <div class="icon">{{ service.icon }}</div>
+            <h3>{{ service.name }}</h3>
+            <p class="service-desc">{{ service.description }}</p>
+            
+            <div class="price">
+                R$ {{ service.price }} <small>/ {{ service.duration }}</small>
+            </div>
+            <p class="duration">⏱️ Duração: {{ service.duration }}</p>
+
+            <ul class="features">
+                {% for feature in service.features %}
+                <li>{{ feature }}</li>
+                {% endfor %}
+            </ul>
+
+            <a href="{% url 'booking' service.id %}" class="btn-primary btn-service">
+                Agendar Agora →
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Seção de Diferenciais -->
+<section style="padding: 60px 24px; background: var(--gray-light);">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center;">
+        <div>
+            <div style="font-size: 40px; margin-bottom: 12px;">🏆</div>
+            <h4 style="font-size: 18px; font-weight: 600;">Produtos Premium</h4>
+            <p style="color: var(--gray); font-size: 14px;">Utilizamos apenas produtos de alta qualidade</p>
+        </div>
+        <div>
+            <div style="font-size: 40px; margin-bottom: 12px;">👨‍🔧</div>
+            <h4 style="font-size: 18px; font-weight: 600;">Equipe Especializada</h4>
+            <p style="color: var(--gray); font-size: 14px;">Profissionais treinados e certificados</p>
+        </div>
+        <div>
+            <div style="font-size: 40px; margin-bottom: 12px;">✅</div>
+            <h4 style="font-size: 18px; font-weight: 600;">Garantia de Satisfação</h4>
+            <p style="color: var(--gray); font-size: 14px;">Seu carro impecável ou seu dinheiro de volta</p>
+        </div>
+        <div>
+            <div style="font-size: 40px; margin-bottom: 12px;">📱</div>
+            <h4 style="font-size: 18px; font-weight: 600;">Agendamento Online</h4>
+            <p style="color: var(--gray); font-size: 14px;">Escolha o melhor horário para você</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Animação de entrada dos cards
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.service-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.index * 100;
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, delay);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        cards.forEach(card => observer.observe(card));
+    });
+</script>
+{% endblock %}
